@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "3ab4cd1a39496a15afd2";
+/******/ 	var hotCurrentHash = "cfad259d648ab397b2ed";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1416,17 +1416,20 @@ module.exports = content.locals || {};
 /*!*********************!*\
   !*** ./src/main.js ***!
   \*********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_cal_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/cal.js */ "./src/modules/cal.js");
+
+
+var _cal = _interopRequireDefault(__webpack_require__(/*! ./modules/cal.js */ "./src/modules/cal.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 __webpack_require__(/*! ./assets/index.css */ "./src/assets/index.css");
-console.log(_modules_cal_js__WEBPACK_IMPORTED_MODULE_0__["default"].add(1,2));
-console.log(_modules_cal_js__WEBPACK_IMPORTED_MODULE_0__["default"].sub(1,2));
 
+console.log(_cal["default"].add(1, 2));
+console.log(_cal["default"].sub(1, 2));
 
 /***/ }),
 
@@ -1434,21 +1437,26 @@ console.log(_modules_cal_js__WEBPACK_IMPORTED_MODULE_0__["default"].sub(1,2));
 /*!****************************!*\
   !*** ./src/modules/cal.js ***!
   \****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-const obj = {
-  add(a,b) {
-    return a+b;
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var obj = {
+  add: function add(a, b) {
+    return a + b;
   },
-  sub(a,b) {
-    return a-b;
+  sub: function sub(a, b) {
+    return a - b;
   }
 };
- /* harmony default export */ __webpack_exports__["default"] = (obj);
- 
+var _default = obj;
+exports["default"] = _default;
 
 /***/ })
 
