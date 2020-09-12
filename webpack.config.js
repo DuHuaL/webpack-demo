@@ -56,13 +56,15 @@ module.exports = {
   // 插件
   plugins: [
     // 打包的时候清空dist文件
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      dry: true
+    }),
     // 这个插件是基于index.html模板去生成最终要发布的首页
     new HtmlWebpackPlugin({
       // 生成首页的title
       title: 'Output Management',
       // 定义生成的文件名称
-      filename: 'main.html',
+      filename: 'index.html',
       // 基于index.html模板生成
       template: 'index.html',
       // 开启压缩文件
@@ -71,5 +73,9 @@ module.exports = {
   ],
   // 映射错误信息到原文件中
   // devtool: 'inline-source-map' 这种写法把生成的source-map也打包到bundle.js中了
-  devtool: 'source-map'
+  devtool: 'source-map',
+  // 提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)
+  devServer: {
+    contentBase: './dist'
+  }
 };
