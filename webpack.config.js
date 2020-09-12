@@ -43,6 +43,17 @@ module.exports = {
         use: [
           'file-loader'
         ]
+      },
+      // es6转es5
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       }
     ]
   },
