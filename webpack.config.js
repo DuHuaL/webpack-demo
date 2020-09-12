@@ -68,5 +68,8 @@ module.exports = {
       // 开启压缩文件
       minify: true
     })
-  ]
+  ],
+  // 映射错误信息到原文件中
+  // devtool: 'inline-source-map' 这种写法把生成的source-map也打包到bundle.js中了
+  devtool: 'source-map'
 };
