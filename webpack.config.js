@@ -1,5 +1,5 @@
 const path = require('path');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   // 打包模式
   mode: 'development',
@@ -50,5 +50,19 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
-  }
+  },
+  // 插件
+  plugins: [
+    // 这个插件是基于index.html模板去生成最终要发布的首页
+    new HtmlWebpackPlugin({
+      // 生成首页的title
+      title: 'Output Management',
+      // 定义生成的文件名称
+      filename: 'main.html',
+      // 基于index.html模板生成
+      template: 'index.html',
+      // 开启压缩文件
+      minify: true
+    })
+  ]
 };
