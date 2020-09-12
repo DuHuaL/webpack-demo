@@ -28,6 +28,10 @@ module.exports = {
           'css-loader',
           'less-loader'
         ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif|webp)$/,
+        use: ['file-loader']
       }
     ]
   },
