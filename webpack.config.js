@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// 清理dist
+const { CleanWebpackPlugin }= require('clean-webpack-plugin');
 module.exports = {
   // 打包模式
   mode: 'development',
@@ -53,6 +55,8 @@ module.exports = {
   },
   // 插件
   plugins: [
+    // 打包的时候清空dist文件
+    new CleanWebpackPlugin(),
     // 这个插件是基于index.html模板去生成最终要发布的首页
     new HtmlWebpackPlugin({
       // 生成首页的title
