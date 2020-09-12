@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 清理dist
 const { CleanWebpackPlugin }= require('clean-webpack-plugin');
+// 启动HMR
+const webpack = require('webpack');
 module.exports = {
   // 打包模式
   mode: 'development',
@@ -69,13 +71,16 @@ module.exports = {
       template: 'index.html',
       // 开启压缩文件
       minify: true
-    })
+    }),
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
   // 映射错误信息到原文件中
   // devtool: 'inline-source-map' 这种写法把生成的source-map也打包到bundle.js中了
   devtool: 'source-map',
   // 提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    hot: true
   }
 };
