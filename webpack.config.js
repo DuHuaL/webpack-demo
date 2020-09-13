@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin }= require('clean-webpack-plugin');
 // 启动HMR
 const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = {
   // 打包模式
   mode: 'development',
@@ -17,6 +18,10 @@ module.exports = {
   // 配置loader
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        use: ['vue-loader']
+      },
       {
         test: /\.css$/,
         // 执行从下往上
@@ -73,6 +78,7 @@ module.exports = {
   },
   // 插件
   plugins: [
+    new VueLoaderPlugin(),
     // 打包的时候清空dist文件
     new CleanWebpackPlugin({
       dry: true
